@@ -47,6 +47,11 @@ contract CryptoDevs is ERC721Enumerable, Ownable {
     _safeMint(msg.sender, tokenIds);
   }
 
+  function _baseURI() internal view virtual override returns (string memory) {
+    return _baseTokenURI;
+  }
+     
+
   function setPaused(bool val) public onlyOwner {
     _paused = val;
   }
